@@ -33,7 +33,7 @@ resource "google_compute_instance" "vm_instance" {
       image = "debian-cloud/debian-9"
     }
   }
-
+  
   network_interface {
     network = google_compute_network.vpc_network.name
     access_config {
