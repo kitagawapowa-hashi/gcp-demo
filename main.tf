@@ -16,20 +16,24 @@ provider "google" {
 }
 
 resource "google_compute_network" "vpc_network" {
-  name = "terraform-network"
+  name = "terraform-network-${random_id.name.hex}"
+}
+
+resource "random_id" "name" {
+  byte_length = 4
 }
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "terraform-instance"
+  name         = "terraform-instance-${random_id.name.hex}"
   machine_type = "f1-micro"
-  tags         = ["web", "security", "prod"]
-
+  tags         = ["web", "security", "dev"]
+  
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-9"
     }
   }
-
+  
   network_interface {
     network = google_compute_network.vpc_network.name
     access_config {
