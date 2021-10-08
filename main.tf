@@ -25,7 +25,7 @@ resource "random_id" "name" {
 
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance-${random_id.name.hex}"
-  machine_type = "e2-standard-32"
+  machine_type = "n1-standard-4"
  # machine_type = "f1-micro"
   tags         = ["web", "security"]
   
