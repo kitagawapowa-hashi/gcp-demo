@@ -28,7 +28,7 @@ resource "google_compute_instance" "vm_instance" {
 #  machine_type = "n1-highmem-2"
 #  machine_type = "n1-standard-8"
   machine_type = "f1-micro"
-  tags         = ["web", "security"]
+  tags         = ["web", "security", "marketing"]
   
   boot_disk {
     initialize_params {
